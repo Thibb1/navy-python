@@ -14,9 +14,10 @@ def coule(boat, M):
         for x in range(10):
             if (M[y][x] == boat):
                 boat_alive += 1
+    # Si le nombre de case touchée est egal au nombre de cases du bateaux
     if (boat_alive == boat_size):
-        return (0)
-    return (1)
+        return (1)
+    return (0)
 
 def check_boat_x(M, x, y, boat):
     # Verifie si le bateaux peux être placé verticalement
@@ -78,6 +79,8 @@ def print_grid(M, show_boats):
 
 def check_input_case(a, M):
     # Si l'input est incorrect alors l'utilisateur c'est trompé
+    if (a == ''):
+        return (1)
     if (len(a) < 2 or len(a) > 3):
         return (1)
     x = int(a[1:]) - 1
@@ -85,8 +88,6 @@ def check_input_case(a, M):
     if (x < 0 or x > 9):
         return (1)
     if (y < 0 or y > 9):
-        return (1)
-    if (M[y][x] != 1 and M[y][x] != 0):
         return (1)
     return (0)
 
