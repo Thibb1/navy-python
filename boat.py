@@ -7,15 +7,12 @@ ALPHABET = ('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J')
 def coule(boat, M):
     # Check si le bateaux est coulé
     boat_alive = 0
-    boat_size = boat
-    if (boat > 10):
-        boat_size = boat - 10
     for y in range(10):
         for x in range(10):
             if (M[y][x] == boat):
                 boat_alive += 1
     # Si le nombre de case touchée est egal au nombre de cases du bateaux
-    if (boat_alive == boat_size):
+    if (boat_alive == 0):
         return (1)
     return (0)
 
@@ -72,7 +69,7 @@ def print_grid(M, show_boats):
                 print("| O  ", end='')
             else:
                 print("| %c%d " %(ALPHABET[y], x + 1), end='')
-        if (M[y][x] != 0):
+        if (M[y][x] != 0 and show_boats):
             print(" ", end='')
         print("|")
     print("----------------------------------------------------")
